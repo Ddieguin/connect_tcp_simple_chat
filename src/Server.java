@@ -8,7 +8,6 @@ import java.io.PrintWriter;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
-
 public class Server implements Runnable {
     
     private ArrayList<ConnectionHandler> connections;
@@ -72,7 +71,6 @@ public class Server implements Runnable {
                 }
             }
         }
-
     
         @Override
         public void run() { 
@@ -98,6 +96,7 @@ public class Server implements Runnable {
                         }
                     } else if(msg.startsWith("/quit")) {
                         broadcast(nickname + " left the chat!");
+                        System.out.println(nickname + " left the chat!");
                         shutDown();
                     } else {
                         broadcast(nickname + ": " + msg);
